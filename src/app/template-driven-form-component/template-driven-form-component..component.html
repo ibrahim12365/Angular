@@ -1,0 +1,59 @@
+
+
+<form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <!-- Informations personnelles -->
+  <fieldset>
+    <legend><h2>Informations personnelles</h2></legend>
+    <div>
+      <ol>
+         <label style="margin: 0.28cm;">Nom :</label>
+    <input type="text" name="name" [(ngModel)]="formData.name" required>
+      </ol>
+       <ol>
+      
+        <label style="margin: 0.2cm;">Email :</label>
+    <input type="email" name="email" [(ngModel)]="formData.email"  #email="ngModel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+    
+      </ol>
+      </div>
+    
+    
+  
+  
+  </fieldset>
+  
+
+  <!-- Informations de paiement -->
+  <fieldset>
+    <legend><h2>Informations de paiement</h2></legend>
+  <div>
+    <ol>
+    <label style="margin: 0.26cm;">Type de carte :</label>
+    <select name="typeOfCard" [(ngModel)]="formData.typeOfCard" required>
+      <option value=""></option>
+      <option value="Visa">Visa</option>
+      <option value="Mastercard">Mastercard</option>
+    </select>
+  </ol>
+  <ol>
+    <label style="margin: 0.3cm;">Numéro de carte :</label>
+    <input type="text" name="cardNumber" [(ngModel)]="formData.cardNumber" required pattern="[0-9]{16}">
+  </ol>
+  <ol>
+    <label style="margin: 0.28cm;">Date d'expiration :</label>
+    <input type="text" name="expiration" [(ngModel)]="formData.expiration" required>
+  </ol>
+  <ol>
+    <label style="margin:0.3cm ;">Code :</label>
+    <input type="password" name="cvv" [(ngModel)]="formData.cvv"required >
+    </ol>
+  </div>
+
+  
+  
+  <!-- Bouton de soumission -->
+
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="!form.valid" >Ajouter</button>
+</fieldset>
+</form>
